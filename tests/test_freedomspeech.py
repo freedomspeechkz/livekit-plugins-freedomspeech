@@ -78,7 +78,7 @@ def _frame(ms: int, sr: int = 16000) -> rtc.AudioFrame:
 
 
 def test_ws_base_url():
-    assert _ws_base("https://freedomspeech.kz/") == "wss://freedomspeech.kz"
+    assert _ws_base("https://api.freedomspeech.kz/") == "wss://api.freedomspeech.kz"
     assert _ws_base("http://localhost:8000") == "ws://localhost:8000"
 
 
@@ -127,7 +127,7 @@ async def test_stt_stream_protocol_and_events():
     await s.aclose()
 
     url, kwargs = session.connect_calls[0]
-    assert url == "wss://freedomspeech.kz/ws/asr?apiKey=k&prettify=false"
+    assert url == "wss://api.freedomspeech.kz/ws/asr?apiKey=k&prettify=false"
     assert kwargs["headers"]["User-Agent"].startswith("livekit-plugins-freedomspeech")
     audio = [m for m in ws.sent if isinstance(m, bytes)]
     assert audio and all(len(m) == 1600 for m in audio)  # 50 ms chunks at 16 kHz
@@ -188,7 +188,7 @@ def test_tts_build_request_fields():
 def test_tts_defaults_and_validation():
     t = TTS(api_key="k", http_session=MagicMock())
     assert t.model == "freedomspeech-flash" and t.sample_rate == 24000 and t.num_channels == 1
-    assert t._ws_url() == "wss://freedomspeech.kz/ws/tts?apiKey=k"
+    assert t._ws_url() == "wss://api.freedomspeech.kz/ws/tts?apiKey=k"
     with pytest.raises(ValueError):
         TTS(api_key="k", sample_rate=16000, http_session=MagicMock())
 

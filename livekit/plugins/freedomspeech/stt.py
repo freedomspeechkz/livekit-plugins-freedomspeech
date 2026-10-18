@@ -48,7 +48,7 @@ from livekit.agents.utils import AudioBuffer, is_given
 
 from .log import logger
 
-BASE_URL = "https://freedomspeech.kz"
+BASE_URL = "https://api.freedomspeech.kz"
 SAMPLE_RATE = 16000  # the server accepts only 16 kHz mono PCM16 and does not resample
 NUM_CHANNELS = 1
 # the server drops a socket after 15 s without audio; silence is sent before that
@@ -105,7 +105,7 @@ class STT(stt.STT):
                 16000 only; other input rates are resampled by the stream.
             api_key: Freedom Speech API key. If not provided, ``FREEDOMSPEECH_API_KEY`` or
                 ``FS_API_KEY`` from the environment is used.
-            base_url: API base URL. Defaults to ``https://freedomspeech.kz``.
+            base_url: API base URL. Defaults to ``https://api.freedomspeech.kz``.
             http_session: Optional aiohttp ClientSession to use for requests.
 
         Raises:

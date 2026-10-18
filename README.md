@@ -16,6 +16,8 @@ Until the package is on PyPI: `pip install -e livekit-plugins-freedomspeech` fro
 
 An API key from <https://freedomspeech.kz>, passed as `api_key` or set as `FREEDOMSPEECH_API_KEY` (or `FS_API_KEY`).
 
+Keys from the console.freedomspeech.kz dashboard work on https://api.freedomspeech.kz, the default `base_url` since 2026-10-18 (Ключ из кабинета console.freedomspeech.kz работает на https://api.freedomspeech.kz, это адрес по умолчанию с 18.10.2026). The plugin uses only `WS /ws/asr` and `WS /ws/tts`, both published on that host.
+
 ## Usage
 
 ```python

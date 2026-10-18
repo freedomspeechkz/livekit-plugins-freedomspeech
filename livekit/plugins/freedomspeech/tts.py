@@ -44,7 +44,7 @@ from livekit.agents.utils import is_given
 
 from .log import logger
 
-BASE_URL = "https://freedomspeech.kz"
+BASE_URL = "https://api.freedomspeech.kz"
 SAMPLE_RATE = 24000
 NUM_CHANNELS = 1
 USER_AGENT = "livekit-plugins-freedomspeech"
@@ -103,7 +103,7 @@ class TTS(tts.TTS):
             sample_rate: Output sample rate. The server produces 24000 Hz.
             api_key: Freedom Speech API key. If not provided, ``FREEDOMSPEECH_API_KEY`` or
                 ``FS_API_KEY`` from the environment is used.
-            base_url: API base URL. Defaults to ``https://freedomspeech.kz``.
+            base_url: API base URL. Defaults to ``https://api.freedomspeech.kz``.
             sentence_tokenizer: Tokenizer that splits streamed text into requests.
             http_session: Optional aiohttp ClientSession to use for requests.
         """
