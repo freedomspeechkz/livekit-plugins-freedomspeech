@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+.pylib/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+*.tgz
+*.wav
+.env
+*.env
